@@ -15,6 +15,7 @@ namespace BlaisePascal.LessonsExamples.DomainTest
         [Fact]
         public void EnemyName_WhenTheNameIsEmpty()
         {
+            //comment
             Enemy newEnemy = new Enemy();
             Assert.NotNull(newEnemy);
         }
