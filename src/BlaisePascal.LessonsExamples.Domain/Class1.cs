@@ -30,7 +30,7 @@
                 }
                 _health = value;
             }
-        } */
+        }*/
 
         public string Name { get; private set; }
 
@@ -38,7 +38,7 @@
 
         public int Health { get; private set; }
 
-        public bool IsAlive { get; private set; }
+        public bool IsAlive => Health > 0; //Solo in questo caso, in altri più complicati non si fa
 
 
 
@@ -55,6 +55,13 @@
         {
             Health = health;
             Name = name;
+        }
+
+        public Enemy(string name, int health)
+        {
+            Name = CharacterValidator.ValidateName(name);
+            //Health = CharacterValidator.ValidateHealth(health);
+            //Description = description ?? string.Empty;
         }
 
 
@@ -87,7 +94,7 @@
             if (int.IsNegative(damage))
                 throw new ArgumentOutOfRangeException("Damage cannot be negative");
 
-            if (damage > 0 && damage < Health && IsAlive == true)
+            /*if (damage > 0 && damage < Health && IsAlive == true)
             {
                 Health -= damage;
                 //Health = Math.Min(0, Health - damage);
@@ -97,7 +104,21 @@
             {
                 IsAlive = false;
                 Health = 0;
-            }
+            }*/ //Codice non pulito
+
+            Health = Math.Max(Health - damage, MinHealth);
         }
+
+        public void Heal(int healPoints)
+        {
+            if (int.IsNegative(healPoints))
+                throw new ArgumentOutOfRangeException("Heal cannot be negative");
+            Health = Math.Min(Health + healPoints, MaxHealth);
+        }
+
+        /*public void Rename(string newName)
+        {
+
+        }*/
     }
 }
