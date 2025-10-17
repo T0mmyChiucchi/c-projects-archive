@@ -57,42 +57,21 @@
             Name = name;
         }
 
-        public Enemy(string name, int health)
+        public Enemy(string name, int health, string description)
         {
             Name = CharacterValidator.ValidateName(name);
-            //Health = CharacterValidator.ValidateHealth(health);
-            //Description = description ?? string.Empty;
+            Health = CharacterValidator.ValidateHealth(health);
+            Description = description;
         }
 
 
 
         //Methods
 
-        /// <summary>
-        /// set a new name
-        /// </summary>
-        /// <param name="newName"></param>
-        public void SetName(string newName)
-        {
-            if (!string.IsNullOrWhiteSpace(newName.Trim()))
-            {
-                Name = newName;
-            }
-
-        }
-
-        public void SetHealth(int newHealth)
-        {
-            if (int.IsPositive(newHealth) && newHealth > 100)
-            {
-                Health = newHealth;
-            }
-        }
-
         public void TakeDamage(int damage)
         {
             if (int.IsNegative(damage))
-                throw new ArgumentOutOfRangeException("Damage cannot be negative");
+                throw new ArgumentOutOfRangeException("Damage cannot be negative", nameof(damage));
 
             /*if (damage > 0 && damage < Health && IsAlive == true)
             {
@@ -106,19 +85,29 @@
                 Health = 0;
             }*/ //Codice non pulito
 
-            Health = Math.Max(Health - damage, MinHealth);
+            Health = Math.Max(Health - damage, CharacterValidator.MinHealth);
         }
 
         public void Heal(int healPoints)
         {
             if (int.IsNegative(healPoints))
                 throw new ArgumentOutOfRangeException("Heal cannot be negative");
-            Health = Math.Min(Health + healPoints, MaxHealth);
+            Health = Math.Min(Health + healPoints, CharacterValidator.MaxHealth);
         }
 
-        /*public void Rename(string newName)
+        public void Rename(string newName)
         {
+            Name = CharacterValidator.ValidateName(newName);
+        }
 
-        }*/
+        public void setName(string name)
+        {
+            Name = CharacterValidator.ValidateName(name);
+        }
+
+        public void setHealth(int health)
+        {
+            Health = CharacterValidator.ValidateHealth(health);
+        }
     }
 }
