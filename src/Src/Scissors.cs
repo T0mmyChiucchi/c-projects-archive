@@ -19,6 +19,8 @@ namespace Src
                 return result = 1;
             else if(otherMove is Rock)
                 return result = -1;
+            else
+                throw new ArgumentException("Tipo di mossa non supportato", nameof(otherMove));
         }
     }
 }

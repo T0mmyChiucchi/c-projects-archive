@@ -5,6 +5,6 @@
         public string Name { get; set; }
         public Move() { }
 
-        public abstract int CompareTo();
+        public abstract int CompareTo(Move otherMove);
     }
 }
