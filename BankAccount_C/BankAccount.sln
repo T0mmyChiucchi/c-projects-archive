@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6C83A596-D32D-B35F-00DD-F0C99B673980}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93AB5181-B46F-4C46-B9ED-81A0E9807662}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F74895D-C16F-476D-9EEF-203E92BD6C50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.BlaisePascal.Domain", "src\BankAccount.BlaisePascal.Domain\BankAccount.BlaisePascal.Domain.csproj", "{30EF140E-94D8-428D-B74E-183883632F3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.BlaisePascal.DomainTest", "test\BankAccount.BlaisePascal.DomainTest\BankAccount.BlaisePascal.DomainTest.csproj", "{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30EF140E-94D8-428D-B74E-183883632F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EF140E-94D8-428D-B74E-183883632F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EF140E-94D8-428D-B74E-183883632F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EF140E-94D8-428D-B74E-183883632F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30EF140E-94D8-428D-B74E-183883632F3B} = {8F74895D-C16F-476D-9EEF-203E92BD6C50}
+		{F88D12E6-6D44-48EC-AE3D-34FBD8E965C6} = {93AB5181-B46F-4C46-B9ED-81A0E9807662}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B97A2D3-5B43-4E97-89B3-189CB4DEA2A9}
+	EndGlobalSection
+EndGlobal
