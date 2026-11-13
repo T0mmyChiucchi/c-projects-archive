@@ -1,0 +1,113 @@
+﻿namespace BlaisePascal.LessonsExamples.Domain
+{
+    public class Enemy
+    {
+        //Attributes
+
+        private int _health;
+        private int _isAlive;
+        private string _name;
+        private string _description;
+
+
+
+        //Properties
+
+        /*public int Health
+        {
+            //get => _health
+            get
+            {
+                return _health;
+            }
+
+            //set => _health = value
+            set
+            {
+                if (_health < 0)
+                {
+                    throw new ArgumentOutOfRangeException("value");
+                }
+                _health = value;
+            }
+        }*/
+
+        public string Name { get; private set; }
+
+        public string Description { get; private set; }
+
+        public int Health { get; private set; }
+
+        public bool IsAlive => Health > 0; //Solo in questo caso, in altri più complicati non si fa
+
+
+
+        //Constructors overload
+
+        public Enemy() { } // Costruttore di default
+
+        public Enemy(string name)
+        {
+            Name = name;
+        }
+
+        public Enemy(string name, int health)
+        {
+            Health = health;
+            Name = name;
+        }
+
+        public Enemy(string name, int health, string description)
+        {
+            Name = CharacterValidator.ValidateName(name);
+            Health = CharacterValidator.ValidateHealth(health);
+            Description = description;
+        }
+
+
+
+        //Methods
+
+        public void TakeDamage(int damage)
+        {
+            if (int.IsNegative(damage))
+                throw new ArgumentOutOfRangeException("Damage cannot be negative", nameof(damage));
+
+            /*if (damage > 0 && damage < Health && IsAlive == true)
+            {
+                Health -= damage;
+                //Health = Math.Min(0, Health - damage);
+                IsAlive = true;
+            }
+            else
+            {
+                IsAlive = false;
+                Health = 0;
+            }*/ //Codice non pulito
+
+            Health = Math.Max(Health - damage, CharacterValidator.MinHealth);
+        }
+
+        public void Heal(int healPoints)
+        {
+            if (int.IsNegative(healPoints))
+                throw new ArgumentOutOfRangeException("Heal cannot be negative");
+            Health = Math.Min(Health + healPoints, CharacterValidator.MaxHealth);
+        }
+
+        public void Rename(string newName)
+        {
+            Name = CharacterValidator.ValidateName(newName);
+        }
+
+        public void setName(string name)
+        {
+            Name = CharacterValidator.ValidateName(name);
+        }
+
+        public void setHealth(int health)
+        {
+            Health = CharacterValidator.ValidateHealth(health);
+        }
+    }
+}
